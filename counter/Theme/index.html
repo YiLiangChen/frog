@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>Counter - Coming Soon Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/soon.css" rel="stylesheet">
+	
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
+
+  </head>
+  <!-- START BODY -->
+  <body class="nomobile">
+	
+	
+    <!-- START HEADER -->
+    <section id="header">
+        <div class="container">
+            <header>
+                <!-- HEADLINE -->
+                <h1 data-animated="GoIn"><b>上傳</b> 新的圖片...</h1>
+            </header>
+            <!-- START TIMER -->
+            <div id="timer" data-animated="FadeIn">
+                <p id="message"></p>
+				<div class="timer_box"><a href="#Modalogin" id="login" data-toggle="modal"><img src="assets/img/slider/leader.jpg" class="Icon" /></a></div>
+                <div class="timer_box"><a href="#Modalmulti" id="MultiImage" data-toggle="modal"><img src="assets/img/slider/butterfly.jpg" class="Icon" /></a></div>
+                <div class="timer_box"><a href=""><img src="assets/img/slider/nature.jpg" class="Icon" /></a></div>
+                <div class="timer_box"><a href=""><img src="assets/img/slider/human.jpg" class="Icon" /></a></div>
+            </div>
+			<div class="progress text-center" style="display:none" >
+				<div id="upload_progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+				</div>
+			</div>
+            <!-- END TIMER -->
+            <div class="col-lg-4 col-lg-offset-4 mt centered">
+            	<h4>LET ME KNOW WHEN YOU LAUNCH</h4>           
+			</div>
+			 
+        </div>
+        <!-- LAYER OVER THE SLIDER TO MAKE THE WHITE TEXTE READABLE -->
+        <div id="layer"></div>
+        <!-- END LAYER -->
+        <!-- START SLIDER -->
+        <div id="slider" class="rev_slider">
+           <ul>
+             <li data-transition="slideleft" data-slotamount="1" data-thumb="assets/img/slider/1.jpg">
+                <img src="assets/img/slider/1.jpg">
+              </li>
+              <li data-transition="slideleft" data-slotamount="1" data-thumb="assets/img/slider/2.jpg">
+                <img src="assets/img/slider/2.jpg">
+              </li>
+              <li data-transition="slideleft" data-slotamount="1" data-thumb="assets/img/slider/3.jpg">
+                <img src="assets/img/slider/3.jpg">
+              </li>
+              <li data-transition="slideleft" data-slotamount="1" data-thumb="assets/img/slider/4.jpg">
+                <img src="assets/img/slider/4.jpg">
+              </li>
+            </ul>
+        </div>
+        <!-- END SLIDER -->
+    </section>
+    <!-- END HEADER -->
+	<div class="modal fade " id="Modalogin" role="dialog" >
+			<div class="modal-dialog modal-lg" >
+				<form >
+					<div class="modal-content" id="hahaha" >
+						<div class="modal-header"> 
+							<h5 style="text-align:center">檔案上傳
+								<span class="open-file" style="text-align:left"><span class="glyphicon glyphicon-plus"></span></span>
+								<input type="file" id="singleImage" name="file" accept="image/*,video/*" style="display:none">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true" style="font-size:24px">&times;</span>
+								</button>
+							</h5>
+						</div>
+						<div class="modal-body" style="overflow:hidden" >
+							<div style="width:40%;float:left">
+								管你<input type="text" name="還沒想好"><br/>
+								想寫<input type="text" name="還沒想好"><br/>
+								什麼<input type="text" name="還沒想好"><br/>
+							</div>
+							<div style="width:60%;float:left"><img class="preview" /></div>
+						</div>
+						<div class="modal-footer">
+							<span><p class="size"></p></span>
+							<span><input type="button" id="postSingle" value="送出囉!!"/></span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal fade " id="Modalmulti" role="dialog" >
+			<div class="modal-dialog modal-lg" >
+				<form >
+					<div class="modal-content" id="hahaha" >
+						<div class="modal-header"> 
+							<h5 style="text-align:center">檔案拖曳
+								<span style="text-align:left"class="glyphicon glyphicon-plus"></span>
+								<input class="file" type="file" id="singleImage" name="singleImage" accept="image/*,video/*" style="display:none">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true" style="font-size:24px">&times;</span>
+								</button>
+							</h5>
+						</div>
+						<div ondragover="dragHandler(event)" ondrop="drop_image(event)" ondragleave="dragLeave(event)" id="drop_image" class="upload-image" style="height:400px">
+							<div class="modal-body" id="iHatejiajia" style="text-align:center" >
+									拖曳至此
+							</div>
+						</div>
+						<div class="modal-footer">
+							<span><p class="size"></p></span>
+							<span><input type="button" id="postMulti" value="送出囉!!"/></span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+    <!--<script src="assets/js/bootstrap.min.js"></script>-->
+    <script src="assets/js/soon/plugins.js"></script>
+    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/js/soon/custom.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/index.js"></script>
+	
+	<script>
+		$(document).ready(function () {
+			init();
+		});
+		
+	</script>
+	
+  </body>
+  <!-- END BODY -->
+</html>
