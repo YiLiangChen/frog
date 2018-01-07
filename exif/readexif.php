@@ -15,7 +15,7 @@ fclose($file);
 // 圖片檔案資料編碼
   $fileContents = base64_encode($id);
   //連結SQL Server
-$dbnum=mssql_connect("photos","root","");
+$dbnum=mysqli_connect("photos","root","");
 //選取資料庫
 mssql_select_db("photos");
 //組合查詢字串
