@@ -11,69 +11,57 @@ switch($act){
     $sql = "SELECT filepic,filetype,id FROM frog";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $result = array ();
-    $row = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($row);
-    $result2[] = $row;
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result2[0][$i]['filepic'] = base64_decode($result2[0][$i]['filepic']);
+      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
     }
-    print_r($result2);
-    return $result2;
+    return $result;
   }catch (PDOException $e) {
     echo "幫你QQ";
   }
 
   case 'butterfly':
   try{
-    $sql = "SELECT filepic,filetype,id FROM frog";
+    $sql = "SELECT filepic,filetype,id FROM butterfly";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $result = array ();
-    $row = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($row);
-    $result2[] = $row;
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result2[0][$i]['filepic'] = base64_decode($result2[0][$i]['filepic']);
+      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
     }
-    print_r($result2);
-    return $result2;
+    return $result;
   }catch (PDOException $e) {
     echo "幫你QQ";
   }
 
   case 'nature':
   try{
-    $sql = "SELECT filepic,filetype,id FROM frog";
+    $sql = "SELECT filepic,filetype,id FROM nature";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $result = array ();
-    $row = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($row);
-    $result2[] = $row;
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result2[0][$i]['filepic'] = base64_decode($result2[0][$i]['filepic']);
+      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
     }
-    print_r($result2);
-    return $result2;
+    return $result;
   }catch (PDOException $e) {
     echo "幫你QQ";
   }
 
   case 'human':
   try{
-    $sql = "SELECT filepic,filetype,id FROM frog";
+    $sql = "SELECT filepic,filetype,id FROM human";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $result = array ();
-    $row = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($row);
-    $result2[] = $row;
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result2[0][$i]['filepic'] = base64_decode($result2[0][$i]['filepic']);
+      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
     }
-    print_r($result2);
-    return $result2;
+    return $result;
   }catch (PDOException $e) {
     echo "幫你QQ";
   }
