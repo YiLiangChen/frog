@@ -22,11 +22,11 @@ for ($i = 0; $i < $count; $i++) {
       echo "檔案太大了>///<";
     }else{
       try{
-        $sql = "INSERT INTO frog(filepic,filename,filetype,filesize) VALUES('".$contents."','".$name."','".$type."','".$size."')";
+        $sql = "INSERT INTO frogphotos(filepic,filename,filetype,filesize) VALUES('".$contents."','".$name."','".$type."','".$size."')";
         $pdo->exec($sql);
-        echo "檔案:".$name."上傳成功</br>";
+        echo "檔案:".$name."上傳成功";
       }catch(PDOException $e){
-        echo "檔案:".$name."上傳過惹</br>";
+        echo "檔案:".$name."上傳過惹";
       }
     }
   }else{
