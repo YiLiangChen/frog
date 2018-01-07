@@ -8,7 +8,7 @@ $act = $_REQUEST['act'];
 switch($act){
   case 'frog':
   try{
-    $sql = "SELECT filepic,filetype,id FROM frog";
+    $sql = "SELECT filepic,filetype,id FROM frogphotos";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
