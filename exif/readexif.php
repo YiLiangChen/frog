@@ -1,6 +1,6 @@
 <?php
 require("dbconnect.php"); //匯入連結資料庫之共用程式碼
-$id=(int)$_REQUEST[id];
+$id=(int)$_REQUEST['id'];
 $sql = "select * from frogphotos where id=$id;"; //預設post進來的是id
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message."); //執行SQL查詢
 ?>
