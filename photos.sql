@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2018-01-06 14:32:01
--- 伺服器版本: 10.1.29-MariaDB
--- PHP 版本： 7.2.0
+-- 產生時間： 2018-01-08 17:59:12
+-- 伺服器版本: 10.1.26-MariaDB
+-- PHP 版本： 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `exif` (
-  `id` char(50) NOT NULL,
+  `id` int(11) NOT NULL,
   `resolution` char(50) NOT NULL,
   `camera` char(50) NOT NULL,
   `aperture` char(50) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `exif` (
 --
 
 CREATE TABLE `frogphotos` (
-  `id` char(50) NOT NULL,
+  `id` int(11) NOT NULL,
   `filepic` blob NOT NULL,
   `filename` varchar(50) NOT NULL,
   `filetype` varchar(50) NOT NULL,
@@ -56,6 +56,38 @@ CREATE TABLE `frogphotos` (
   `textName` char(50) NOT NULL,
   `textIntroduce` char(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 已匯出資料表的索引
+--
+
+--
+-- 資料表索引 `exif`
+--
+ALTER TABLE `exif`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `frogphotos`
+--
+ALTER TABLE `frogphotos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 在匯出的資料表使用 AUTO_INCREMENT
+--
+
+--
+-- 使用資料表 AUTO_INCREMENT `exif`
+--
+ALTER TABLE `exif`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用資料表 AUTO_INCREMENT `frogphotos`
+--
+ALTER TABLE `frogphotos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
