@@ -11,20 +11,20 @@
 		});
 	}
 /**********************************************************************************************
-**********************************************************************************************/	
-	
-	
+**********************************************************************************************/
+
+
 /****************************************************************************************************
-****************************************************************************************************/	
-	
+****************************************************************************************************/
+
 	function format_float(num, pos)
     {
         var size = Math.pow(10, pos);
         return Math.round(num * size) / size;
     }
- 
+
     function preview(input) {
- 
+
         if (input.files && input.files[0]) {
 			//$('#name').html('檔案名稱 :'+input.files[0].name);
 			$('#listText').prepend(`
@@ -38,11 +38,11 @@
                 var KB = format_float(e.total / 1024, 2);
                 $('.size').text("檔案大小：" + KB + " KB");
             }
- 
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-	
+
 	function postSingle(){
 		var files = $('#singleImage').prop('files');
 		var data = new FormData();
@@ -50,7 +50,7 @@
 		console.log(files);
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost/add/upload.php',
+			url: 'http://localhost/frog/add/upload.php',
 			data: data,
 			cache: false,
 			processData: false,
@@ -68,9 +68,9 @@
 				  alert('找不到此網頁');
 		  },
 		});
-		
+
 	}
- 
+
     function multiPost(files){
 		var data = new FormData();
 		for(i=0;i<files.length;i++)
@@ -101,7 +101,7 @@
 		$('#message').html('OUR SITE IS NOT READY YET...');
 		controller();
 	}
-	
+
 	function dragHandler(event){
 		console.log('yes');
 		event.target.style.border = "4px dotted blue";
@@ -115,7 +115,6 @@
 		event.preventDefault(); //防止瀏覽器執行預設動作
 		event.target.style.border = "none";
 		var files  = event.dataTransfer.files; //擷取拖曳的檔案
-		//把擷取到的檔案用POST送到後端去 
+		//把擷取到的檔案用POST送到後端去
 		$('#postMulti').on('click',multiPost(files));
 	}
-	

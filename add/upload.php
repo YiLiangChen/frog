@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin:*');
 $count = count($_FILES['file']['name']);
 $error = $_FILES['file']['error'];
 
+
 for ($i = 0; $i < $count; $i++) {
   if ($error[$i] === UPLOAD_ERR_OK){
     $tmp_name=$_FILES['file']['tmp_name'][$i];
@@ -79,7 +80,6 @@ for ($i = 0; $i < $count; $i++) {
       }
     }
   }else{
-	  echo $error;
     echo "圖片上傳失敗";
   }
 }
