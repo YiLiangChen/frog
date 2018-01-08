@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2018-01-06 14:32:01
+-- 產生時間： 2018-01-08 16:36:33
 -- 伺服器版本: 10.1.29-MariaDB
 -- PHP 版本： 7.2.0
 
@@ -56,6 +56,16 @@ CREATE TABLE `frogphotos` (
   `textName` char(50) NOT NULL,
   `textIntroduce` char(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 已匯出資料表的索引
+--
+
+--
+-- 資料表索引 `frogphotos`
+--
+ALTER TABLE `frogphotos`
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
