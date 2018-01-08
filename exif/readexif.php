@@ -17,7 +17,7 @@ fclose($file);
   //連結SQL Server
 $dbnum=mysqli_connect("photos","root","");
 //選取資料庫
-mssql_select_db("photos");
+mysql_select_db("photos");
 //組合查詢字串
         $SQLSTR="Insert into myimage (resolution,
 		camera,aperture,exposure,isoSpeed,focaLength,
@@ -48,7 +48,7 @@ mssql_select_db("photos");
 	  echo "ISO速度：" . $_FILES["upfile"]["isoSpeed"] . "<BR>";
 	  echo "焦距：" . $_FILES["upfile"]["focaLength"] . "<BR>";
 	  echo "飽和度：" . $_FILES["upfile"]["saturation"] . "<BR>";
-      echo "白平衡：" . $_FILES["upfile"]["whiteBalance"] . "<BR>";
+          echo "白平衡：" . $_FILES["upfile"]["whiteBalance"] . "<BR>";
 	  echo "拍攝時間" . $_FILES["upfile"]["phototime"] . "<BR>";
 
       if ( $_FILES["upfile"]["size"] > 0 ) 
@@ -64,9 +64,9 @@ mssql_select_db("photos");
          $fileContents = base64_encode($id);
 
          //連結SQL Server
-         $dbnum=mssql_connect("photos","root","");
+         $dbnum=mysql_connect("photos","root","");
          //選取資料庫
-         mssql_select_db("photos");
+         mysql_select_db("photos");
          //組合查詢字串
          $SQLSTR="Insert into myimage (resolution,
 		camera,aperture,exposure,isoSpeed,focaLength,
@@ -82,7 +82,7 @@ mssql_select_db("photos");
 				'". $_FILES["upfile"]["phototime"] . "',
 				  '". $fileContents . "')";
          //將圖片檔案資料寫入資料庫
-         if(!mssql_query($SQLSTR)==0)
+         if(!mysql_query($SQLSTR)==0)
            {
             echo "您所上傳的檔案已儲存進入資料庫<a href=\"readexif.php?filename="
                  . $_FILES["upfile"]["name"] . "\">"
