@@ -68,18 +68,14 @@ for ($i = 0; $i < $count; $i++) {
       echo "檔案太大了>///<";
     }else{
       try{
-        $sql = "INSERT INTO frog(filepic,filename,filetype,filesize) VALUES('".$contents."','".$name."','".$type."','".$size."')";
+        $sql = "INSERT INTO frogphotos(filepic,filename,filetype,filesize) VALUES('".$contents."','".$name."','".$type."','".$size."')";
         $pdo->exec($sql);
-<<<<<<< HEAD
         $sql2 = "INSERT INTO exif(photoTime,resolution,camera,aperture,exposure,isoSpeed,focalLength,saturation,whiteBalance)
         VALUES('".$DateTime."','".$ResolutionUnit."','".$Model."','".$ApertureFNumber."','".$ExposureTime."','".$ISOSpeedRatings."','".$FocalLengthIn35mmFilm."','".$Saturation."','".$WhiteBalance."')" ;
         $pdo->exec($sql2);
         echo "檔案:".$name."上傳成功";
-=======
-        echo "檔案:".$name."上傳成功</br>";
->>>>>>> fcf3a670ae40f1bb363865e38acf36760b606241
       }catch(PDOException $e){
-        echo "檔案:".$name."上傳過惹</br>";
+        echo "檔案:".$name."上傳過惹";
       }
     }
   }else{
@@ -87,6 +83,4 @@ for ($i = 0; $i < $count; $i++) {
     echo "圖片上傳失敗";
   }
 }
-
-
 ?>
