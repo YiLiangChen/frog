@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function deletepic(act){
+    var i = $('#i').val();
+    var am = $('#am').val();
+    var best = $('#best').val();
+    if(act=='delete'){
+        $.ajax({
+                url: "edit.php",
+                type:"POST",
+                data:{i:i,am:am,best:best,act:act},
+                dataType:"xml",
+                success:function(xml){
+                    return true;
+                }
+        })
+    }else{
+        $.ajax({
+            url:"edit.php",
+            type:"POST",
+            data:{act:act}
+            dataType:"xml",
+            success:function(xml){
+                return true;
+            }
+        })
+    }
+}
+</script>
+</head>
+<body>
+<form id="data" name="data">
+我<input type="text" name="i" id="i"><br/>
+很<input type="text" name="am" id="am"><br/>
+棒<input type="text" name="best" id="best"><br/>
+<input type="submit" onclick="editpic('delete')" value="delete">
+<input type="submit" onclick="editpic('change')" value="change">
+</form>
+</body>
+</html>
