@@ -11,8 +11,8 @@ function deletepic(act){
                 url: "edit.php",
                 type:"POST",
                 data:{i:i,am:am,best:best,act:act},
-                dataType:"xml",
-                success:function(xml){
+                dataType:"json",
+                success:function(json){
                     return true;
                 }
         })
