@@ -2,16 +2,17 @@ function list_Photo(){
   console.log('good');
 		$.ajax({
 		  type: 'GET',
-      dataType: "binary",
+      //dataType: "binary",
       url: "http://localhost/frog-master/add/show.php?act=frog",
       success : function(data){
-      console.log(data[0]);
+      console.log(data.length);
+      $('#showtable').html('');
+      for(i=0;i<data.length;i=i+1){
       $('#showtable').prepend(
-        `"<div class="col-md-7">
-      for(i=0;i<data.length;i++){
-      <a id="${data.id}" herf="#" class="JM"><h2><img src="data:image/jpeg;base64,{data[0].filepic}"/></h2></a>
-      }</div>"`
-      )
+      `"<div class="col-md-7">
+      <a data.id="${i}" herf="#" class="JM"><h2><img src="data[0].filepic"></h2></a>
+      </div>"`
+    )}
     },error : function(err){
       console.log('err');
     },
@@ -22,7 +23,7 @@ $('#showtable').on("click",'.JM',function(){
 	$('#modalshow').html(src);
 	console.log("安安");
 	var id = $(this).prop("id");
-	QQ(id);
+  QQ(id);
 });
 $('#frogbutton').on("click",function(){
     console.log("success!");
@@ -46,3 +47,6 @@ $('#showtable').on("click",function(){
   console.log("nice");
   ;
 });
+function QQ(id){
+	console.log(id);
+}
