@@ -27,12 +27,12 @@
  
         if (input.files && input.files[0]) {
 			//$('#name').html('檔案名稱 :'+input.files[0].name);
+			$('#listText').html('');
 			$('#listText').prepend(`
 			<div id="name" >檔案名稱</div><input type="text" name="name" value="${input.files[0].name}" ><br/>
 			<div id="introduce" >介紹</div><textarea type="text" style="style="width:300px;height:100px;" name="introduce"/><br/>
 			`);
             var reader = new FileReader();
-            console.log(input.files[0]);
             reader.onload = function (e) {
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
