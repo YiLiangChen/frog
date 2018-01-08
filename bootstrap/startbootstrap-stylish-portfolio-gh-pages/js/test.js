@@ -2,6 +2,7 @@ function list_Photo(){
   console.log('good');
 		$.ajax({
 		  type: 'GET',
+<<<<<<< HEAD
       //dataType: "binary",
       url: "http://localhost/frog-master/add/show.php?act=frog",
       success : function(data){
@@ -13,11 +14,22 @@ function list_Photo(){
       <a data.id="${i}" herf="#" class="JM"><h2><img src="data[0].filepic"></h2></a>
       </div>"`
     )}
+=======
+      url: "http://localhost/frog-master/add/show.php?act=frog",
+      success : function(data){
+      console.log(data);
+      $('#about').prepend(
+        `"<div class="col-md-7">
+        <h2><img src="data[0].filepic"/></h2>
+        </div>"`
+      )
+>>>>>>> f6dda5813574423118c9030fbe421b4a3c60ee36
     },error : function(err){
-      console.log('err');
+      console.log(err.status);
     },
   });
 }
+<<<<<<< HEAD
 $('#showtable').on("click",'.JM',function(){
 	var src = $(this).html();
 	$('#modalshow').html(src);
@@ -25,9 +37,12 @@ $('#showtable').on("click",'.JM',function(){
 	var id = $(this).prop("id");
   QQ(id);
 });
+=======
+>>>>>>> f6dda5813574423118c9030fbe421b4a3c60ee36
 $('#frogbutton').on("click",function(){
     console.log("success!");
     list_Photo();
+
 });
 function List(){
   $('#about').html(
