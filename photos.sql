@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2018-01-08 16:36:33
+-- 產生時間： 2018-01-08 16:39:35
 -- 伺服器版本: 10.1.29-MariaDB
 -- PHP 版本： 7.2.0
 
@@ -60,6 +60,12 @@ CREATE TABLE `frogphotos` (
 --
 -- 已匯出資料表的索引
 --
+
+--
+-- 資料表索引 `exif`
+--
+ALTER TABLE `exif`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 資料表索引 `frogphotos`
