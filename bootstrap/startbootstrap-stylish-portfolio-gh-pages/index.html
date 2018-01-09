@@ -33,26 +33,20 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          <a class="js-scroll-trigger" href="#page-top">瀏覽測試頁面</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="#page-top">Home</a>
         </li>
 
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
+          <a class="js-scroll-trigger" href="#about">Album</a>
         </li>
+
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
+          <a class="js-scroll-trigger" href="#portfolio">Option</a>
         </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-        <li class="frogbutton">
-          <a class
+
       </ul>
     </nav>
 
@@ -74,13 +68,13 @@
         .container img:hover{
           -webkit-transform: scale(1.4);
         }
-        .container p,h4{
+        .container h4{
           color: black;
         }
         </style>
         <div class="content-section-heading">
-          <h3 class="text-secondary mb-0">What are you looking for?</h3>
-          <h2 class="mb-5">Choose one species</h2>
+          <h3 class="text-secondary mb-0"></h3>
+          <h2 class="mb-5">Welcome</h2>
         </div>
         <br><br><br><br><br>
         <div class="row" style="align-buttom">
@@ -135,41 +129,48 @@
       </div>
     </section>
     <!--choice-->
+    <style>
+    #portfolio {
+      background-image:url('Option背景圖.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    </style>
     <section class="content-section" id="portfolio">
       <div class="container">
         <div class="content-section-heading text-center">
-          <h3 class="text-secondary mb-0">Portfolio</h3>
-          <h2 class="mb-5">Recent Projects</h2>
+          <h3 class="text-secondary mb-0">Be Happy</h3>
+          <h2 class="mb-5">Choose one Spicies</h2>
         </div>
         <div class="row no-gutters">
           <div class="col-lg-6">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Ice Cream</h2>
-                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                  <h2>butterfly</h2>
+                  <p class="mb-0"></p>
                 </span>
               </span>
               <img class="img-fluid" src="img/butterfly.jpg" width="555px" height="370.25px" alt="" id="butterflybutton">
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="#about" id="frogbutton" >
+            <a class="portfolio-item" href="#about" id="frogbutton">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Ice Cream</h2>
-                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                  <h2>Frog</h2>
+                  <p class="mb-0"></p>
                 </span>
               </span>
-              <img class="frogbutton2" src="img/frog.jpg" width="555px" height="370.25px" alt="" >
+              <img class="img-fluid" src="img/frog.jpg" width="555px" height="370.25px" alt="" id="beebutton">
             </a>
           </div>
           <div class="col-lg-6">
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Strawberries</h2>
-                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                  <h2>Bee</h2>
+                  <p class="mb-0"></p>
                 </span>
               </span>
               <img class="img-fluid" src="img/bee.jpg" width="555px" height="370.25px" alt="" id="beebutton">
@@ -179,8 +180,8 @@
             <a class="portfolio-item" href="#">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Workspace</h2>
-                  <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                  <h2>Snake</h2>
+                  <p class="mb-0"></p>
                 </span>
               </span>
               <img class="img-fluid" src="img/snake.jpg"  width="555px" height="370.25px"  alt="" id="snakebutton">
@@ -197,11 +198,18 @@
       #about img:hover{
         -webkit-transform: scale(1.4);
       }
+      #showtable img{
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+      }
         .box {
           margin : 0px 0px 0px 20px;
         }
         #about{
-         background-color: lightgreen;
+         background-image:url('About背景圖.jpg');
+         background-size: cover;
+         background-attachment: fixed;
         }
       </style>
       <div class="box">
@@ -228,8 +236,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-        <button type="button" class="btn btn-secondary" id="edit">修改</button>
-        <button type="button" class="btn btn-secondary" id="delet">刪除</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="edit">修改</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="delet">刪除</button>
       </div>
     </div>
   </div>
