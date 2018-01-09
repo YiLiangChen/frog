@@ -11,46 +11,49 @@
 		});
 	}
 /**********************************************************************************************
-**********************************************************************************************/
-
-
+**********************************************************************************************/	
+	
+	
 /****************************************************************************************************
-****************************************************************************************************/
-
+****************************************************************************************************/	
+	
 	function format_float(num, pos)
     {
         var size = Math.pow(10, pos);
         return Math.round(num * size) / size;
     }
-
+ 
     function preview(input) {
-
+ 
         if (input.files && input.files[0]) {
 			//$('#name').html('檔案名稱 :'+input.files[0].name);
+			$('#listText').html('');
 			$('#listText').prepend(`
-			<div id="name" >檔案名稱</div><input type="text" name="name" value="${input.files[0].name}" ><br/>
-			<div id="introduce" >介紹</div><textarea type="text" style="style="width:300px;height:100px;" name="introduce"/><br/>
+			<div>檔案名稱</div><input type="text" id="name" value="${input.files[0].name}" ><br/>
+			<div>介紹</div><textarea type="text" id="introduce"  style="style="width:300px;height:100px;" name="introduce"/><br/>
 			`);
             var reader = new FileReader();
-            console.log(input.files[0]);
             reader.onload = function (e) {
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
                 $('.size').text("檔案大小：" + KB + " KB");
             }
-
             reader.readAsDataURL(input.files[0]);
         }
     }
-
+	
 	function postSingle(){
 		var files = $('#singleImage').prop('files');
+		var introduce = $('#introduce').val();
+		var name = $('#name').val();
 		var data = new FormData();
 		data.append('file[]', files[0]);
-		console.log(files);
+		data.append('filename',name);
+		data.append('introduce',introduce);
+		console.log(data);
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost/frog/add/upload.php',
+			url: 'http://localhost/add/upload.php',
 			data: data,
 			cache: false,
 			processData: false,
@@ -68,9 +71,9 @@
 				  alert('找不到此網頁');
 		  },
 		});
-
+		
 	}
-
+ 
     function multiPost(files){
 		var data = new FormData();
 		for(i=0;i<files.length;i++)
@@ -101,7 +104,7 @@
 		$('#message').html('OUR SITE IS NOT READY YET...');
 		controller();
 	}
-
+	
 	function dragHandler(event){
 		console.log('yes');
 		event.target.style.border = "4px dotted blue";
@@ -115,6 +118,7 @@
 		event.preventDefault(); //防止瀏覽器執行預設動作
 		event.target.style.border = "none";
 		var files  = event.dataTransfer.files; //擷取拖曳的檔案
-		//把擷取到的檔案用POST送到後端去
+		//把擷取到的檔案用POST送到後端去 
 		$('#postMulti').on('click',multiPost(files));
 	}
+	
