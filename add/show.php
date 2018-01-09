@@ -2,23 +2,29 @@
 require 'DBconnect.php';
 
 header("Access-Control-Allow-Origin: *");
-//header("Content-type: image/jpeg");
 $act = $_REQUEST['act'];
 
 switch($act){
   case 'frog':
   try{
-    $sql = "SELECT filepic,filetype,id FROM frog";
+    $sql = "SELECT filepic,filetype,id,textName,textIntroduce FROM frogphotos";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $sql2 = "SELECT * FROM exif";
+    $stmt = $pdo->prepare($sql2);
+    $stmt->execute();
+    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
     $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
+      $result[$i] = array_merge($result[$i],$result2[$i]);
     }
+    $result = json_encode($result);
+    $result = str_replace("\\","",$result);
+    print_r($result);
     return $result;
   }catch (PDOException $e) {
-    echo "幫你QQ";
+    echo $e;
   }
 
   case 'butterfly':
@@ -27,13 +33,20 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $sql2 = "SELECT * FROM exif";
+    $stmt = $pdo->prepare($sql2);
+    $stmt->execute();
+    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
     $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
+      $result[$i] = array_merge($result[$i],$result2[$i]);
     }
+    $result = json_encode($result);
+    $result = str_replace("\\","",$result);
+    print_r($result);
     return $result;
   }catch (PDOException $e) {
-    echo "幫你QQ";
+    echo $e;
   }
 
   case 'nature':
@@ -42,13 +55,20 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $sql2 = "SELECT * FROM exif";
+    $stmt = $pdo->prepare($sql2);
+    $stmt->execute();
+    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
     $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
+      $result[$i] = array_merge($result[$i],$result2[$i]);
     }
+    $result = json_encode($result);
+    $result = str_replace("\\","",$result);
+    print_r($result);
     return $result;
   }catch (PDOException $e) {
-    echo "幫你QQ";
+    echo $e;
   }
 
   case 'human':
@@ -57,13 +77,20 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $sql2 = "SELECT * FROM exif";
+    $stmt = $pdo->prepare($sql2);
+    $stmt->execute();
+    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
     $count = count($result);
     for($i = 0;$i < $count;$i++){
-      $result[$i]['filepic'] = base64_decode($result[$i]['filepic']);
+      $result[$i] = array_merge($result[$i],$result2[$i]);
     }
+    $result = json_encode($result);
+    $result = str_replace("\\","",$result);
+    print_r($result);
     return $result;
   }catch (PDOException $e) {
-    echo "幫你QQ";
+    echo $e;
   }
 }
 
