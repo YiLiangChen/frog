@@ -11,14 +11,6 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $sql2 = "SELECT * FROM exif";
-    $stmt = $pdo->prepare($sql2);
-    $stmt->execute();
-    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($result);
-    for($i = 0;$i < $count;$i++){
-      $result[$i] = array_merge($result[$i],$result2[$i]);
-    }
     $result = json_encode($result);
     $result = str_replace("\\","",$result);
     print_r($result);
@@ -33,14 +25,6 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $sql2 = "SELECT * FROM exif";
-    $stmt = $pdo->prepare($sql2);
-    $stmt->execute();
-    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($result);
-    for($i = 0;$i < $count;$i++){
-      $result[$i] = array_merge($result[$i],$result2[$i]);
-    }
     $result = json_encode($result);
     $result = str_replace("\\","",$result);
     print_r($result);
@@ -55,14 +39,6 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $sql2 = "SELECT * FROM exif";
-    $stmt = $pdo->prepare($sql2);
-    $stmt->execute();
-    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($result);
-    for($i = 0;$i < $count;$i++){
-      $result[$i] = array_merge($result[$i],$result2[$i]);
-    }
     $result = json_encode($result);
     $result = str_replace("\\","",$result);
     print_r($result);
@@ -77,14 +53,6 @@ switch($act){
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $sql2 = "SELECT * FROM exif";
-    $stmt = $pdo->prepare($sql2);
-    $stmt->execute();
-    $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
-    $count = count($result);
-    for($i = 0;$i < $count;$i++){
-      $result[$i] = array_merge($result[$i],$result2[$i]);
-    }
     $result = json_encode($result);
     $result = str_replace("\\","",$result);
     print_r($result);
