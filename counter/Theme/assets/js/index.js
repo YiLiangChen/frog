@@ -48,8 +48,8 @@
 		var name = $('#name').val();
 		var data = new FormData();
 		data.append('file[]', files[0]);
-		data.append('filename',name);
-		data.append('introduce',introduce);
+		data.append('textName',name);
+		data.append('textIntroduce',introduce);
 		console.log(data);
 		$.ajax({
 			type: 'POST',
