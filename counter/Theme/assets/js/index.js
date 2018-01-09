@@ -33,7 +33,7 @@
 			<div>介紹</div><textarea type="text" id="introduce"  style="style="width:300px;height:100px;" name="introduce"/><br/>
 			`);
             var reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function (e) {	
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
                 $('.size').text("檔案大小：" + KB + " KB");
@@ -78,7 +78,6 @@
 		var data = new FormData();
 		for(i=0;i<files.length;i++)
 			data.append('file[]', files[i]);
-		console.log(files);
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost/add/upload.php',
@@ -86,18 +85,27 @@
 			cache: false,
 			processData: false,
 			contentType: false,
+			xhr:function(){
+				var xhr = new window.XMLHttpRequest();
+                //用來處理上傳的事件
+                xhr.upload.addEventListener("progress", function (evt) {
+					console.log(Math.round(evt.loaded / evt.total * 100) + "%")
+                    $('#statustxt').html(Math.round(evt.loaded / evt.total * 100) + "%");
+                }, false);
+
+                return xhr;
+			},
 			success: function(data){
 			  alert(data);
-			  $('#Modalogin').modal('hide');
-		  },
-		  error: function(e,xhr,options){
+			},
+			error: function(e,xhr,options){
 			  $('#Modalmulti').modal('hide');
 			  console.log(e.status);
 			  if(e.status==401)
 				  alert('你被拒絕囉');
 			  else if(e.status==404)
 				  alert('找不到此網頁');
-		  },
+			},
 		});
 	}
 	function init() {
@@ -117,8 +125,30 @@
 	function drop_image(event){
 		event.preventDefault(); //防止瀏覽器執行預設動作
 		event.target.style.border = "none";
+		var swap;
 		var files  = event.dataTransfer.files; //擷取拖曳的檔案
-		//把擷取到的檔案用POST送到後端去 
-		$('#postMulti').on('click',multiPost(files));
+		for(i=0;i<files.length;i++){
+			if (!files[i].type.match('image')){
+				var name = files[i].name ;
+				files = swap;
+				alert(name+'無法上傳！請拖曳圖片檔案！');
+				continue ;
+			}
+			var reader = new FileReader(files[i]);
+				reader.onload = function(e){
+					$('#drop_image').append(`
+						<span >
+							<img src="${e.target.result}" height="100px" width="160px" style="margin-top:10px;" />
+						</span>	
+					`);
+				}
+			reader.readAsDataURL(files[i]);
+			
+		}
+		$(document).on('click','#postMulti',function(){
+			$('#WW').css('display','');
+			$('#Modalmulti').modal('hide');
+			multiPost(files);
+		});
 	}
 	
