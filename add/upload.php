@@ -104,7 +104,8 @@ if($count > 15){
             echo "檔案:".$name."上傳成功";
           }catch(PDOException $e){
             echo "檔案:".$name."上傳過惹";
-          }
+			
+		  }
         }
       }else{
         echo "檔案不對喔";
