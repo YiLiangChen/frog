@@ -42,6 +42,7 @@
     }
 	
 	function postSingle(){
+		$('#Modalogin').modal('hide');
 		var files = $('#singleImage').prop('files');
 		var introduce = $('#introduce').val();
 		var name = $('#name').val();
