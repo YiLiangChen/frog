@@ -2,7 +2,7 @@ function list_Photo(){
 		$.ajax({
 		  type: 'GET',
       dataType :'json',
-      url: "http://localhost/frog-master/add/show.php?act=frog",
+      url: "http://localhost/add/show.php?act=frog",
       success : function(data){
         //data[0].filepic = data[0].filepic.replace(/%/g, "+");
         //reader.readAsDataURL(data);
@@ -20,7 +20,7 @@ function list_Photo(){
 function Post_id(name){
   $.ajax({
    type: 'POST',
-   url: "http://localhost/frog-master/add/showexif.php",
+   url: "http://localhost/add/showexif.php",
    data:{ filename : name  },
    dataType:'json',
    success: function(data){
@@ -69,7 +69,7 @@ function changepic(id,filename){
   console.log('change');
     $('#edit').on('click',function(){
         ajax({
-            url: "http://localhost/frog-master/add/edit.php?act=edit",
+            url: "http://localhost/add/edit.php?act=edit",
             type:"POST",
             data:{
             textName:$('#textName').val(),
@@ -95,7 +95,7 @@ function changepic(id,filename){
     });
     $('delete').on('click',function(){
         ajax({
-            url: "http://localhost/frog-master/add/edit.php?act=delete",
+            url: "http://localhost/add/edit.php?act=delete",
             type:"POST",
             data:{id:id},
             success:function(data){
