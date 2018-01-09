@@ -22,7 +22,6 @@
         var size = Math.pow(10, pos);
         return Math.round(num * size) / size;
     }
- 
     function preview(input) {
  
         if (input.files && input.files[0]) {
@@ -92,7 +91,6 @@
 					console.log(Math.round(evt.loaded / evt.total * 100) + "%")
                     $('#statustxt').html(Math.round(evt.loaded / evt.total * 100) + "%");
                 }, false);
-
                 return xhr;
 			},
 			success: function(data){
@@ -130,7 +128,6 @@
 		for(i=0;i<files.length;i++){
 			if (!files[i].type.match('image')){
 				var name = files[i].name ;
-				files = swap;
 				alert(name+'無法上傳！請拖曳圖片檔案！');
 				continue ;
 			}
@@ -143,7 +140,6 @@
 					`);
 				}
 			reader.readAsDataURL(files[i]);
-			
 		}
 		$(document).on('click','#postMulti',function(){
 			$('#WW').css('display','');
