@@ -1,5 +1,5 @@
 <?php
-require'dbconnect.php';
+require'DBconnect.php';
 header('Access-Control-Allow-Origin:*');
 
 try{
