@@ -29,7 +29,7 @@
 			//$('#name').html('檔案名稱 :'+input.files[0].name);
 			$('#listText').html('');
 			$('#listText').prepend(`
-			<div>檔案名稱</div><input type="text" id="name" value="${input.files[0].name}" ><br/>
+			<div>檔案名稱</div><input type="text" id="name" placeholder="名稱:例如莫氏樹蛙" ><br/>
 			<div>介紹</div><textarea type="text" id="introduce"  style="style="width:300px;height:100px;" name="introduce"/><br/>
 			`);
             var reader = new FileReader();
