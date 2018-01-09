@@ -38,7 +38,7 @@ CREATE TABLE `exif` (
   `focalLength` char(50) NOT NULL,
   `saturation` char(50) NOT NULL,
   `whiteBalance` char(50) NOT NULL,
-  `photoTime` char(50) NOT NULL
+  `photoTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
