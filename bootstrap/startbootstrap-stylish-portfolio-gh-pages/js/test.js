@@ -2,18 +2,19 @@ function list_Photo(){
   console.log('good');
 		$.ajax({
 		  type: 'GET',
-      //dataType: "binary",
+      dataType :'json',
       url: "http://localhost/frog-master/add/show.php?act=frog",
       success : function(data){
-      var count = Object.keys(data);
-      console.log(count);
-      $('#showtable').html('');
-      for(i=0;i<count;i=i+1){
-      $('#showtable').prepend(
-      `"<div class="col-md-7">
-      <a data.id="${i}" herf="#" class="JM"><h2><img src="data[0].filepic"></h2></a>
-      </div>"`
-    )}
+        //data[0].filepic = data[0].filepic.replace(/%/g, "+");
+        console.log(data[0].filepic);
+        //reader.readAsDataURL(data);
+        $('#showtable').html('');
+        for(i=0;i<data.length;i=i+1){
+          $('#showtable').prepend(
+            `
+            <a data.id="${i}" herf="#" class="JM"><img width="300px" height="200px" src="data:image/jpeg;base64,${data[i].filepic}"></a>
+            `
+      )}
     },error : function(err){
       console.log('err');
     },
@@ -38,9 +39,9 @@ function List(){
 $('#frogicon').on("click",function(){
   //console.log("good");
   $('#showtable').html('');
-  for(i=0;i<50;i=i+1){
+  for(i=0;i<4;i=i+1){
   $('#showtable').prepend(
-    `<img src="img/butterfly.jpg" width="150px" height="100px">&nbsp &nbsp`
+    `<img src="data:image/jpeg;base64," width="150px" height="100px">&nbsp &nbsp`
     );
   }
 });

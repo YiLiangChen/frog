@@ -8,10 +8,19 @@ function changepic(id){
             filename:$('#filename').val();,
             textName:$('#textName').val();,
             textIntroduce:$('#textIntroduce').val();,
+            resolution:$('#resolution').val();,
+            camera:$('#camera').val();,
+            aperture:$('#aperture').val();,
+            exposure:$('#exposure').val();,
+            IsoSpeed:$('#Isospeed').val();,
+            focalLengh:$('#focalLengh').val();,
+            saturation:$('#saturation').val();,
+            whiteBalance:$('#whiteBalance').val();,
+            photoTime:$('#photoTime').val();,
             id:id
             },
             success:function(data){
-                alert("ok");
+                return data;
             },
             error:function(error){
                 alert("QQ");
