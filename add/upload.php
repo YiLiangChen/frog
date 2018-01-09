@@ -20,19 +20,18 @@ if($count > 15){
 
         $size=$_FILES['file']['size'][$i];
         $name=$_FILES['file']['name'][$i];
-        if(isset($_POST['filename'])){
-          $textName = $_POST['filename'];
+        if(!empty($_POST['textName'])){
+          $textName = $_POST['textName'];
         }else{
-          $textName = $name;
+          $textName = "No name";
         }
-        if(isset($_POST['introduce'])){
-          $textIntroduce = $_POST['introduce'];
+        if (!empty($_POST['textIntroduce'])){
+          $textIntroduce = $_POST['textIntroduce'];
         }else{
           $textIntroduce = "沒有介紹QQ";
         }
-
+        print_r($textName);
         $sizemb = round($size/1024000,2);
-
         if(isset($exif['ResolutionUnit'])){
           if (array_key_exists('DateTime', $exif)) {
             $DateTime = $exif['DateTime'];
