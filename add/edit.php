@@ -15,7 +15,6 @@ try{
 	$stmt->execute();
     $result2 = $stmt->fetchall(PDO::FETCH_ASSOC);
     $result = array_merge($result,$result2);
-    print_r($result);
 
   if (!empty($_POST['resolution'])) {
     $resolution = $_POST['resolution'];
@@ -72,11 +71,9 @@ try{
   }else{
 		$textIntroduce = $result[1]['textIntroduce'];
 	}
-	print_r($textName);
-	$sql3 = "UPDATE frogphotos SET textName = $textName , textIntroduce = $textIntroduce WHERE filename = :filename";
-	$stmt = $pdo->prepare($sql3);
-	$stmt->bindParam(':filename',$filename);
-	$stmt->execute();
+	
+	$sql3 = "UPDATE frogphotos SET textName = '$textName' , textIntroduce = '$textIntroduce' WHERE filename = '$filename'";
+	$pdo->exec($sql3);
 	$sql4 = "UPDATE exif SET resolution = :resolution , camera = :camera , aperture = :aperture , exposure = :exposure , isoSpeed = :isoSpeed , focalLength = :focalLength , saturation = :saturation , whiteBalance = :whiteBalance , photoTime = :photoTime WHERE filename= :filename";
 	$stmt = $pdo->prepare($sql4);
 	$stmt->bindParam(':resolution',$resolution);
