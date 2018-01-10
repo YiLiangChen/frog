@@ -86,7 +86,7 @@ function changepic(id,filename){
             }
         });
     });
-    $('#delet').on('click',function(){
+    $('#delet').unbind('click').on('click',function(){
         $.ajax({
             url: "http://localhost/add/delete.php?act=delete",
             type:"POST",
