@@ -72,6 +72,7 @@ try{
   }else{
 		$textIntroduce = $result[1]['textIntroduce'];
 	}
+	print_r($textName);
 	$sql3 = "UPDATE frogphotos SET textName = $textName , textIntroduce = $textIntroduce WHERE filename = :filename";
 	$stmt = $pdo->prepare($sql3);
 	$stmt->bindParam(':filename',$filename);

@@ -30,7 +30,7 @@ if($count > 15){
         }else{
           $textIntroduce = "沒有介紹QQ";
         }
-        print_r($textName);
+        
         $sizemb = round($size/1024000,2);
         if(isset($exif['ResolutionUnit'])){
           if (array_key_exists('DateTime', $exif)) {
@@ -79,7 +79,6 @@ if($count > 15){
             $WhiteBalance = "Unknown";
           }
         }else{
-          echo "EXIF Unknown";
           $DateTime = "Unknown";
           $ResolutionUnit = "Unknown";
           $Model = "Unknown";
@@ -91,7 +90,7 @@ if($count > 15){
           $WhiteBalance = "Unknown";
         }
 
-        if($sizemb > 2){
+        if($sizemb > 5){
           echo "檔案太大了>///<";
         }else{
           try{
@@ -102,6 +101,7 @@ if($count > 15){
             $pdo->exec($sql2);
             echo "檔案:".$name."上傳成功";
           }catch(PDOException $e){
+			echo $e;
             echo "檔案:".$name."上傳過惹";
 			
 		  }
