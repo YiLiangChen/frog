@@ -26,8 +26,8 @@ function Post_id(name){
    dataType:'json',
    success: function(data){
         $('#modalshow').append(
-        `<div>textName = <input type="text" id="textName" placeholder="${data[0].textName}" ></div><br/>
-        <div>textIntroduce = <input type="text" id="textIntroduce" placeholder="${data[0].textIntroduce}" > </div><br/>
+        `<div>textName = <input type="text" id="textName" placeholder="${data[1].textName}" ></div><br/>
+        <div>textIntroduce = <input type="text" id="textIntroduce" placeholder="${data[1].textIntroduce}" > </div><br/>
         <div>resolution = <input type="text" id="resolution" placeholder="${data[0].resolution}" > </div><br/>
         <div>camera = <input type="text" id="camera" placeholder="${data[0].camera}" > </div><br/>
         <div>aperture = <input type="text" id="aperture" placeholder="${data[0].aperture}" > </div><br/>
@@ -59,8 +59,8 @@ function List(){
   )
 };
 function changepic(id,filename){
-  console.log('change');
-    $('#edit').on('click',function(){
+    $('#edit').unbind('click').on('click',function(){
+		console.log('change');
         $.ajax({
             url: "http://localhost/add/edit.php",
             type:"POST",
@@ -79,7 +79,7 @@ function changepic(id,filename){
             filename:filename,
             },
             success:function(data){
-				aler('修改成功!');
+				alert('修改成功!');
             },
             error:function(error){
                 alert("QQ");
